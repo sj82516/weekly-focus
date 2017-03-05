@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    div.container
+        div.page-header
+            div.page-title
+                a(href='/') Weekly Focus
+            include ./components/page-nav
+        div.page-route-title Thanks! Just a few things..
+        if(isSubscribe)
+            div.page-route-subtitle  To complete the subscription process, please click the link in the email we've just sent you in 1 hour! Or you have to subscribe again.
+        else
+            div.page-route-subtitle  To complete the unsubscription process, please click the link in the email we've just sent you in 1 hour! Or you have to unsubscribe again.
+        div.tweeter
+            h2.content-block__title Follow them on Twitter
+            h4.content-block__subtitle
+                a(href='https://twitter.com/FrontendDaily') @Weekly
+                span  is Weekly Focus's sister Twitter account with extra news, links, and info.
+            iframe(
+                src="https://platform.twitter.com/widgets/tweet_button.html?size=l&url=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button&via=twitterdev&related=twitterapi%2Ctwitter&text=custom%20share%20text&hashtags=example%2Cdemo"
+                width="140"
+                height="28"
+                title="Twitter Tweet Button"
+                style="border: 0; overflow: hidden;")
+        div.publication-list
+            h2.content-block__title Official publications
+            h4.content-block__subtitle You might be interested in the official publications :-)
+            table.publication-list-table
+                tbody
+                    each publication in publicationList
+                        tr
+                            td.publication__name
+                                a(href=publication.link)= publication.name
+                            td.publication__intro
+                                p= publication.intro
+        div.page-footer

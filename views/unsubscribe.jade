@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    div.container
+        div.page-header
+            div.page-title
+                a(href='/') Weekly Focus
+            include ./components/page-nav
+        div.page-route-title Unsubscribe
+        if(errorMsg)
+            div.error-msg #{errorMsg}
+        if(successMsg)
+            div.success-msg #{successMsg}
+        div.page-route-subtitle So sad to know you wana unsubscribe...
+        form#unsubscribe-form(action='/api/unsubscribe' method="post")
+            input(name="email" type='email' required placeholder="Please input your email").search-bar_full
+            div(class="g-recaptcha" data-sitekey="6Lf0XxYUAAAAAPoJ1N14l1TDGI2Vp_wfxngUktso")
+            input(type="hidden" name="_csrf" value="#{csrfToken}")
+            button(type='submit' value='submit').search-btn Send
+    script(src="https://www.google.com/recaptcha/api.js")

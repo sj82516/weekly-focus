@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    div.container
+        div.page-header
+            div.page-title Admin
+            nav.page-nav
+                a(href='/admin').page-nav-item edit
+                a(href='/').page-nav-item home
+                a(href='/admin/preview').page-nav-item preview
+        div.issue-section
+            include ./components/issueTable

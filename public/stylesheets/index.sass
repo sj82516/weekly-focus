@@ -1,0 +1,175 @@
+$color: #ff6939
+
+body
+  padding: 10px 5%
+  font: 16px "Helvetica Neue", Helvetica, Ubuntu, Arial, sans-serif
+  margin: auto
+  min-height: 100vh
+  border-top: 5px $color solid
+  border-bottom: 8px $color solid
+  box-sizing: border-box
+  @media screen and (max-width: 768px)
+    padding: 10px
+
+a
+  color: $color
+  text-decoration: none
+input, textarea
+  border: 1px solid gray
+input:focus, textarea:focus
+  outline: none
+  box-shadow: 0 0 5px $color
+  border: 1px solid $color
+
+input[type='radio']:checked:before
+  outline: none
+  -webkit-appearance: none
+  background: $color
+
+
+button
+  display: inline-block
+  background-color: yellow
+  border-radius: 5px
+  font-size: 1rem
+  box-shadow: 1px 1px 3px #999
+  border: 1px solid #ffc826
+  margin-right: 10px
+  margin-top: 5px
+  background-image: linear-gradient(to bottom, #ffd65e, #febf04)
+  @media screen and (max-width: 768px)
+    width: 100%
+
+.container
+  max-width: 700px
+  margin: auto
+
+.web-title
+  font-size: 3.5rem
+  text-align: center
+  margin: 30px 0
+  font-weight: 700
+  text-shadow: 0 0 3px gray
+  color: $color
+  @media screen and (max-width: 768px)
+    font-size: 2.5rem
+
+.web-subTitle
+  font-size: 1.5rem
+  text-align: center
+  margin-bottom: 20px
+  font-weight: 300
+  @media screen and (max-width: 768px)
+    font-size: 1.1rem
+
+.nav
+  text-align: center
+.nav-item
+  cursor: pointer
+  text-transform: uppercase
+  padding: 0 10px
+  @media screen and (max-width: 768px)
+    padding: 0 5px
+    font-size: 1rem
+  &:not(:last-child)
+    border-right: 3px solid gray
+    @media screen and (max-width: 768px)
+      border: none
+
+.error-msg
+  background-color: palevioletred
+  text-align: center
+  padding: 10px
+  margin: 10px 0
+  font-size: 0.8rem
+  animation: msg 1s 1 2s forwards
+.success-msg
+  @extend .error-msg
+  background-color: palegreen
+
+@keyframes msg
+  0%
+    max-height: 100px
+  75%
+    max-height: 100px
+    opacity: 1
+  100%
+    -webkit-transform: scale(0)
+    opacity: 0
+    max-height: 0
+    font-size: 0
+    padding: 0
+    margin: 0
+
+.subscribe-bar
+  background-color: #e4e4e4
+  display: flex
+  justify-content: center
+  padding: 10px
+  margin-bottom: 20px
+
+.subscribe-email__input
+  width: 300px
+  height: 30px
+  display: inline-block
+  margin-right: 10px
+  font-size: 1.1rem
+  color: gray
+  border-color: gray
+  padding: 0 5px
+  letter-spacing: 0.5px
+  box-sizing: border-box
+  @media screen and (max-width: 768px)
+    width: 100%
+  &:placeholder
+    font-size: 1.2rem
+    color: darkgray
+
+.web-example
+  font-size: 1.2rem
+  font-weight: 500
+  margin-bottom: 20px
+  text-align: center
+
+.web-intro
+  text-align: center
+  margin-bottom: 30px
+  font-size: 1rem
+  font-weight: 300
+
+.web-review
+  font-size: 1.8rem
+  text-align: center
+
+.web-review__title
+ margin-bottom: 20px
+
+.reviewer-list
+  display: flex
+  @media screen and (max-width: 768px)
+    display: block
+
+.reviewer
+  display: flex
+  padding-right: 30px
+  box-sizing: border-box
+  @media screen and (max-width: 768px)
+    margin: 10px 0
+.reviewer__img
+  width: 50px
+  height: 50px
+  margin-right: 10px
+
+.reviewer__review
+  flex: 1
+  text-align: left
+  font-size: 0.9rem
+  font-weight: 400
+
+.reviewer__name
+  font-size: 1rem
+  margin-top: 5px
+.reviewer__title
+  color: gray
+  font-size: 0.9rem
+

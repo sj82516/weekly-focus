@@ -1,0 +1,28 @@
+table#backgroundTable(cellpadding='0', cellspacing='0', border='0', style='width:100%;margin:0;padding:75px 5% 20px 5%; text-align:left;background-color:#eeeeee')
+    tr
+        td(valign='top', align='center')
+            table(cellpadding='0', cellspacing='0', border='0', align='center', style='width: 100%;margin: 10px 0;')
+                tr(style="background-color: orange")
+                    td(style="padding:6px 12px")
+                        table(cellpadding='0', cellspacing='0', border='0', align='left', style='max-width:600px;')
+                            tbody
+                                tr
+                                    td
+                                        h1(style="font-size: 24px;line-height: 36px;color: white;") Weekly Focus
+                        table(cellpadding='0', cellspacing='0', border='0', align='right', style='max-width:600px;')
+                            tbody
+                                tr
+                                    td
+                                        h1(style="font-size: 14px; line-height: 36px; font-weight: normal; color: #ffffff") ##{issueId} — #{date}
+                tr
+                    td(style="padding: 16px 12px 12px 12px;background-color:#ffffff;")
+                        table(cellpadding='0', cellspacing='0', border='0', align='left', style='max-width:600px; border-radius:6px;')
+                            tbody
+                                each article in articleList
+                                    tr
+                                        td
+                                            div(style="color: #6ca629; font-weight: normal; font-size: 12px; line-height: 12px; text-transform: uppercase; margin-top: 4px") #{article.author}
+                                            p(style="margin: 4px 0;")
+                                                a(href="#{article.link}" style="font-size: 24px; margin: 2px 0px; color: orange; line-height: 24px;") #{article.title}
+                                            p(style="font-size: 14px; line-height: 16px; margin: 0;") #{article.intro}
+                                            br(clear="all" style="clear: both")

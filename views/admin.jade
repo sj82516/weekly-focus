@@ -1,0 +1,54 @@
+extends layout
+
+block content
+    div.container
+        div.page-header
+            div.page-title
+                a(href='/admin') Admin
+            nav.page-nav
+                a(href='/admin').page-nav-item edit
+                a(href='/').page-nav-item home
+                a(href='/admin/preview').page-nav-item preview
+        div.page-route-title Current Issue #{nextIssue} will deliver on every #{cronday}
+        div
+            div.content-block__title Choose publish day
+            -var week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+            form(action="/admin/cronday" method="post")#select-cronday-form
+                each day, i in week
+                    if(i == 4)
+                        br
+                    div.week-day-input
+                        label(for='#{day}').input__radio-title #{day}
+                        input(type="radio" name="cronday" id='#{day}' value='#{day}' checked= cronday == day).input__radio
+                input(type="hidden" name="_csrf" value="#{csrfTokenCronDay}")
+                br
+                button(type='submit') submit
+        div.article-list
+            div.content-block__title Articles in current issue
+            each article in articleList
+                article(id="#{article._id}").article-item
+                    h1.article-item__title #{article.title}
+                    h4.article-item__author #{article.author}
+                    h2.article-item__intro #{article.intro}
+                    a(href="#{article.link}").article-item__link #{article.link}
+                    br
+                    button(value="#{article._id}").article-form__edit-btn edit
+                    button(value="#{article._id}").article-form__delete-btn delete
+        div
+            h2.content-block__title Create new article
+            form#article-form
+                label.article-form__label title
+                input(type="text" name="title" required).article-form__input#article-form__title
+                label.article-form__label intro
+                textarea(type="text" name="intro" rows="4" cols="50" maxlength="200" placeholder="maximun 200 chars" required).article-form__input#article-form__intro
+                label.article-form__label author
+                input(type="text" name="author" required).article-form__input#article-form__author
+                label.article-form__label link
+                input(type="text" name="link" required).article-form__input#article-form__link
+                input(type="hidden" value="#{}" name="articleId")#article-form__articleid
+                input(type="hidden" name="_csrf" value="#{csrfToken}")#article-form__csrf-token
+                button(type="submit")#article-form__submit Create
+                button#article-form__reset Reset
+    script(type='text/javascript' src='/javascripts/admin.js')
+
+

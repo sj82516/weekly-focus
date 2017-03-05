@@ -1,0 +1,35 @@
+extends layout
+
+block content
+    div.container
+        div.page-header
+            div.page-title
+                a(href='/') Weekly Focus
+            include ./components/page-nav
+        if(emptySearch)
+            div.page-route-title Search for ...
+            form#search-form(action='/search' method="get")
+                input(name="q" type='text' required).search-bar_full
+                button(type='submit' value='submit').search-btn Search
+        else if(resultList.length == 0)
+            div.search-bar
+                form#search-form(action='/search' method="get")
+                    input(name="q" type='text' required).search-input
+                    button(type='submit' value='submit').search-btn Search
+            div.page-route-title No results
+            div.page-route-title #{searchInput}
+        else
+            div.search-bar
+                form#search-form(action='/search' method="get")
+                    input(name="q" type='text' required).search-input
+                    button(type='submit' value='submit').search-btn Search
+            div.content-block__title #{result}
+            div.page-route-title #{searchInput}
+            div.result-list
+                each result in resultList
+                    div
+                        p.result__title
+                            a(href="#{result.link}" target="_blank").link_decoration #{result.title}
+                        p.result__intro #{result.intro}
+                        p.result__issue in
+                            a(href='/issues/#{result.issueId}').result__issue-link  #{webTitle} ##{result.issueId}

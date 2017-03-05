@@ -1,0 +1,43 @@
+extends layout
+
+block content
+    div.container
+        nav.nav
+            a(href='/issues').nav-item Archives
+            a(href='/search').nav-item Search
+            a(href='/issues/#{latestIssue}').nav-item Latest
+            a(href='/unsubscribe').nav-item Unsubscribe
+        h1.web-title
+            a(href='/') Weekly Focus
+        h3.web-subTitle Inspired by FrontEnd Focus Weekly. Build up weekly newsletter system, including backend and CMS system.
+        if(errorMsg)
+            div.error-msg #{errorMsg}
+        if(successMsg)
+            div.success-msg #{successMsg}
+        div.subscribe-bar
+            form#subscribe-form(action='/api/subscribe' method="post")
+                input(placeholder="Enter your email address" name="email" type='email' required).subscribe-email__input
+                input(type="hidden" name="_csrf" value="#{csrfToken}")
+                button(type='submit' value='submit').subscribe-email__btn Subscribe Now 》
+        div.web-example
+            span Check out
+            a(href="/issues/#{latestIssue}")  issue#{latestIssue}
+            span  for a sample of what we're all about.
+        div.web-intro One e-mail each #{cronDay}. Easy to unsubscribe. No spam — your e-mail address is safe.
+        div.web-review
+            h4.web-review__title What Our readers say
+            ul.reviewer-list
+                li.reviewer
+                    img(href='').reviewer__img
+                    div.reviewer__review Weekly is the most interesting and thoughtful newsletter that I've ever seen. Because as the author, you have to love your works.
+                        br
+                        p.reviewer__name
+                            a Yuanchieh Cheng
+                        p.reviewer__title wait for hiring.
+                li.reviewer
+                    img(href='').reviewer__img
+                    div.reviewer__review It's me again. If you have any commend, please post issue on github or send to my email. Thanks
+                        br
+                        p.reviewer__name
+                            a EmailMe
+                        p.reviewer__title wait for hiring.

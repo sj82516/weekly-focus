@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    div.container
+        div.page-header
+            div.page-title
+                a(href='/') Weekly Focus
+            include ./components/page-nav
+        div.search-bar
+            form#search-form(action='/search' method="get")
+                input(name="q" type='text' required).search-input
+                button(type='submit' value='submit').search-btn Search
+        div.page-route-title Archives
+        div.issue-list
+            each issue in issueList
+                div.issue-list__issue
+                    div.issue-list__issue-title
+                        a(href='/issues/#{issue.id}') Issue ##{issue.id}
+                        span.issue-list__issue-date  - #{issue.date}
+                    ul
+                        each intro in issue.introList
+                            li.issue-list__issue-intro= intro

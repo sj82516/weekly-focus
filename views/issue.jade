@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    div.container
+        div.page-header
+            div.page-title
+                a(href='/') Weekly Focus
+            include ./components/page-nav
+        div.search-bar
+            form#search-form(action='/search' method="get")
+                input(name="q" type='text' required).search-input
+                button(type='submit' value='submit').search-btn Search
+        div.page-route-title
+            a(href='/issues').link_decoration Issues
+            span   » #{issueId}
+        div.issue-subscribe-bar
+            form#subscribe-form(action='/api/subscribe' method="post")
+                input(placeholder="Enter your email address" name="email" type='email' required).subscribe-email__input
+                input(type="hidden" name="_csrf" value="#{csrfToken}")
+                button(type='submit' value='submit').subscribe-email__btn Subscribe Now 》
+            div.issue-subscribe-intro One e-mail each #{cronDay}. Easy to unsubscribe. No spam — your e-mail address is safe.
+        if(articleList.length == 0)
+            div.issue-section
+                div(style="text-align:center;").content-block__title Nothing to show! You can check out our latest issue.
+        else
+            div.issue-section
+                include ./components/issueTable
