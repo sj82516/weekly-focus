@@ -35,6 +35,7 @@ router.post('/', function (req, res) {
 
             // Iterate over each messaging event
             entry.messaging.forEach(function (event) {
+                console.log(event, event.postback);
                 if (event.message) {
                     receivedMessage(event);
                 } else if (event.postback) {
@@ -75,7 +76,6 @@ function receivedMessage(event) {
             sendFeedMessage(senderID);
         }else if(/^search:/.test(messageText)){
             let searchString = /search:([a-zA-Z0-9]*)/.exec(messageText)?/search:([a-zA-Z0-9]*)/.exec(messageText)[1]:"";
-            console.log("match search", searchString);
             sendSearchMessage(searchString || '', senderID);
         }else{
             sendTextMessage(senderID, messageText);
@@ -146,11 +146,26 @@ function receivedPostback(event) {
     // button for Structured Messages.
     let payload = event.postback.payload;
 
-    console.log("Received postback for user %d and page %d with payload '%s' at %d", senderID, recipientID, payload, timeOfPostback);
+    console.log("Received postback for user", payload);
 
+    let issueId = /^ISSUE:/.exec(payload) || /^ISSUE:/.exec(payload)[1];
+    console.log(issueId);
 
-
-    sendTextMessage(senderID, "Postback called");
+    ArticleModel.find({issueId: issueId}).limit(5).exec().then(articleList=> {
+        if(articleList === null || articleList.length === 0){
+            return sendTextMessage(recipientId, "nothing found");
+        }
+        let messageData = {
+            recipient: {
+                id: recipientID
+            },
+            message: articleListToMessage(articleList)
+        };
+        callSendAPI(messageData);
+    }).catch(err => {
+        "use strict";
+        console.error("sendSearchMessage", err);
+    });
 }
 
 function callSendAPI(messageData) {
