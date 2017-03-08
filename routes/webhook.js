@@ -230,7 +230,6 @@ function articleListToMessage(articleList) {
         return {
             title: article.title,
             subtitle: article.author,
-            item_url: article.link,
             image_url: WEB_URL + '/images/weeklyfocus.jpeg',
             buttons: [{
                 type: "web_url",
