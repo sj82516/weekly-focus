@@ -201,7 +201,7 @@ function articleListToMessage(articleList) {
             image_url: WEB_URL + '/images/weeklyfocus.jpeg',
             buttons: [{
                 type: "web_url",
-                url: article.link,
+                url: "",
                 title: "Link to article"
             }, {
                 type: "postback",
