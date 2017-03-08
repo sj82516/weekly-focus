@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d4e76a-8e03-4bdc-9f43-956158f1341f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/admin.js" afterPath="$PROJECT_DIR$/routes/admin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/webhook.js" afterPath="$PROJECT_DIR$/routes/webhook.js" />
     </list>
     <ignored path="weekly.iws" />
@@ -48,8 +49,8 @@
       <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
-              <caret line="230" column="21" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
+            <state relative-caret-position="148">
+              <caret line="227" column="40" selection-start-line="227" selection-start-column="40" selection-end-line="227" selection-end-column="40" />
               <folding>
                 <element signature="n#!!block;n#init#0" expanded="false" />
                 <element signature="n#!!block;n#createIssue#0" expanded="false" />
@@ -72,8 +73,8 @@
       <file leaf-file-name="webhook.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/webhook.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="239" column="9" selection-start-line="239" selection-start-column="9" selection-end-line="239" selection-end-column="9" />
+            <state relative-caret-position="238">
+              <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -157,8 +158,8 @@
         <option value="$PROJECT_DIR$/views/admin.jade" />
         <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/bin/www" />
-        <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/routes/api.js" />
+        <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/routes/webhook.js" />
       </list>
     </option>
@@ -249,6 +250,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -382,12 +415,12 @@
       <workItem from="1487687093228" duration="90681000" />
       <workItem from="1488639918907" duration="12975000" />
       <workItem from="1488876841842" duration="7741000" />
-      <workItem from="1488943574062" duration="2741000" />
+      <workItem from="1488943574062" duration="3147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146020000" />
+    <option name="totallyTimeSpent" value="146426000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="768" extended-state="0" />
@@ -818,28 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="230" column="21" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!block;n#init#0" expanded="false" />
-            <element signature="n#!!block;n#createIssue#0" expanded="false" />
-            <element signature="n#!!block;n#renderIssueEmail#0" expanded="false" />
-            <element signature="e#3271#3381#0" expanded="false" />
-            <element signature="n#issueMailOptions#0" expanded="false" />
-            <element signature="n#!!block;n#deliverIssueEmail#0" expanded="false" />
-            <element signature="e#4437#4839#0" expanded="false" />
-            <element signature="e#4886#5317#0" expanded="false" />
-            <element signature="e#5398#5847#0" expanded="false" />
-            <element signature="e#5878#6265#0" expanded="false" />
-            <element signature="e#6409#6492#0" expanded="false" />
-            <element signature="e#6559#6833#0" expanded="false" />
-            <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -866,10 +877,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="227" column="40" selection-start-line="227" selection-start-column="40" selection-end-line="227" selection-end-column="40" />
+          <folding>
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#createIssue#0" expanded="false" />
+            <element signature="n#!!block;n#renderIssueEmail#0" expanded="false" />
+            <element signature="e#3271#3381#0" expanded="false" />
+            <element signature="n#issueMailOptions#0" expanded="false" />
+            <element signature="n#!!block;n#deliverIssueEmail#0" expanded="false" />
+            <element signature="e#4437#4839#0" expanded="false" />
+            <element signature="e#4886#5317#0" expanded="false" />
+            <element signature="e#5398#5847#0" expanded="false" />
+            <element signature="e#5878#6265#0" expanded="false" />
+            <element signature="e#6409#6492#0" expanded="false" />
+            <element signature="e#6559#6833#0" expanded="false" />
+            <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/webhook.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="239" column="9" selection-start-line="239" selection-start-column="9" selection-end-line="239" selection-end-column="9" />
+        <state relative-caret-position="238">
+          <caret line="210" column="0" selection-start-line="210" selection-start-column="0" selection-end-line="210" selection-end-column="0" />
           <folding />
         </state>
       </provider>

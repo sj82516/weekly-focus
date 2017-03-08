@@ -6,7 +6,7 @@ const ArticleModel = require('../model/article.model').ArticleModel;
 const IssueModel = require('../model/issue.model').IssueModel;
 
 const PAGE_ACCESS_TOKEN = "EAAZA429anqPYBADpbqgqZAKWUZAWzl63gRdJES7h8UktaB0NoW0A54N8Usk6dFOZBeqaOOTRBUZCQx0oWDzZAZCAJlFLUsnybaVX2np3YZBSVpCcI1ArEpfZAnJXXzZAZAYBpgfJTa093aCBBg5z2ZBpBpNHsSzzLPtqSCPBiidhTgZAhZAgZDZD";
-const WEB_URL = "https://yuanchieh.info"
+const WEB_URL = "https://yuanchieh.info";
 
 // FB的Webhook GET 驗證
 router.get('/', function (req, res) {
@@ -102,7 +102,6 @@ function sendGenericMessage(recipientId) {
                         title: "rift",
                         subtitle: "Next-generation virtual reality",
                         item_url: "https://www.oculus.com/en-us/rift/",
-                        image_url: "http://messengerdemo.parseapp.com/img/rift.png",
                         buttons: [{
                             type: "web_url",
                             url: "https://www.oculus.com/en-us/rift/",
@@ -116,7 +115,6 @@ function sendGenericMessage(recipientId) {
                         title: "touch",
                         subtitle: "Your Hands, Now in VR",
                         item_url: "https://www.oculus.com/en-us/touch/",
-                        image_url: "http://messengerdemo.parseapp.com/img/touch.png",
                         buttons: [{
                             type: "web_url",
                             url: "https://www.oculus.com/en-us/touch/",
@@ -151,6 +149,9 @@ function sendTextMessage(recipientId) {
 function sendFeedMessage(recipientId) {
     ArticleModel.aggregate([{$sample: {size: 5}}]).exec().then(articleList => {
         "use strict";
+        if(articleList === null || articleList.length === 0){
+            return sendTextMessage(recipientId, "nothing found");
+        }
         let messageData = {
             recipient: {
                 id: recipientId
@@ -167,6 +168,9 @@ function sendFeedMessage(recipientId) {
 function sendSearchMessage(searchString, recipientId) {
     "use strict";
     ArticleModel.find({$text: {$search: searchString}}).limit(5).exec().then(articleList=> {
+        if(articleList === null || articleList.length === 0){
+            return sendTextMessage(recipientId, "nothing found");
+        }
         let messageData = {
             recipient: {
                 id: recipientId
@@ -226,11 +230,11 @@ function articleListToMessage(articleList) {
         return {
             title: article.title,
             subtitle: article.author,
-            item_url:  "https://www.oculus.com/en-us/touch/",
-            image_url: "http://messengerdemo.parseapp.com/img/rift.png",
+            item_url: article.link,
+            image_url: WEB_URL + '/images/weeklyfocus.jpeg',
             buttons: [{
                 type: "web_url",
-                url:  "https://www.oculus.com/en-us/touch/",
+                url: article.link,
                 title: "Link to article"
             }, {
                 type: "postback",
