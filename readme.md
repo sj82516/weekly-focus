@@ -3,6 +3,7 @@
 UI與UX大量參考原網站，如有侵權煩請告知  
 除了原本的功能外，自己而外加上了 取消訂閱(原網站我真的找不到取消訂閱的連結...)與後台  
 [Demo影片](https://vimeo.com/205758478)
+因為想要練習寫Messenger BOT，所以就順手上線了 [yuanchieh.info](http://yuanchieh.info/)
 #### 架構
 使用NodeJS搭配Express，頁面渲染引擎使用Jade 
 
@@ -16,6 +17,9 @@ UI與UX大量參考原網站，如有侵權煩請告知
 ![Imgur](http://i.imgur.com/AmylLNU.jpg)
 4. HTML Email設計(持續優化中)
 ![Imgur](http://i.imgur.com/vqf9O0s.jpg)
+5. 加入Messenger BOT
+![Imgur](http://i.imgur.com/gJZNHoU.png)
+6. 加入粉絲專頁自動發文
 
 #### 實作紀錄
 1. HTML Email
@@ -48,5 +52,4 @@ Mongoose find之後會回傳DAO，但如果想要純JS Object可以用`lean()`
 
 #### Todo
 1. 加入Blog形態的文章，目前所有(包含nodeweekly等)都只是外部連結文章，希望加入更完整CMS系統
-2. 連結粉絲專頁，同步發文
-3. admin驗證、與管理員修改記錄追蹤
+2. admin驗證、與管理員修改記錄追蹤
