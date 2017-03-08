@@ -5,7 +5,7 @@ let request = require('request');
 const ArticleModel = require('../model/article.model').ArticleModel;
 const IssueModel = require('../model/issue.model').IssueModel;
 
-const PAGE_ACCESS_TOKEN = "EAAZA429anqPYBADpbqgqZAKWUZAWzl63gRdJES7h8UktaB0NoW0A54N8Usk6dFOZBeqaOOTRBUZCQx0oWDzZAZCAJlFLUsnybaVX2np3YZBSVpCcI1ArEpfZAnJXXzZAZAYBpgfJTa093aCBBg5z2ZBpBpNHsSzzLPtqSCPBiidhTgZAhZAgZDZD";
+const PAGE_ACCESS_TOKEN = "EAAZA429anqPYBACzIZAbl7kJszLDb6R5EV2dfEgkHvl6fTg1MHY6SBjxn2QTfFwyuviZCN8ZCg37bnykf60Y4o7M64U8kNTRkHfcGsEN3TZAYR5ZCSwgMJS2NQwq5lZAYswcHPawADhORn87PcVNOrBuZAZCb9HwUOlFZCnckoTyKgGTAAvdbjCyqOmG90TctqekUZD";
 const WEB_URL = "https://yuanchieh.info";
 
 // FB的Webhook GET 驗證
@@ -148,7 +148,8 @@ function receivedPostback(event) {
 
     console.log("Received postback for user", payload);
 
-    let issueId = /^ISSUE:/.exec(payload) || /^ISSUE:/.exec(payload)[1];
+    let regex = /^ISSUE:([0-9]*)/.exec(payload);
+    let issueId = regex[1] || process.env.LatestIssue;
     console.log(issueId);
 
     ArticleModel.find({issueId: issueId}).limit(5).exec().then(articleList=> {
