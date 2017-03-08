@@ -226,11 +226,11 @@ function articleListToMessage(articleList) {
         return {
             title: article.title,
             subtitle: article.author,
-            item_url: article.link,
+            item_url:  "https://www.oculus.com/en-us/touch/",
             image_url: "http://messengerdemo.parseapp.com/img/rift.png",
             buttons: [{
                 type: "web_url",
-                url: article.link,
+                url:  "https://www.oculus.com/en-us/touch/",
                 title: "Link to article"
             }, {
                 type: "postback",
