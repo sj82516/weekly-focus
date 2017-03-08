@@ -60,8 +60,6 @@ function receivedMessage(event) {
     let timeOfMessage = event.timestamp;
     let message = event.message;
 
-    console.log("Received message for user %d and page %d at %d with message:", senderID, recipientID, timeOfMessage);
-
     let messageId = message.mid;
 
     let messageText = message.text;
@@ -70,32 +68,28 @@ function receivedMessage(event) {
     if (messageText) {
         //去除所有空白
         messageText = messageText.replace(/ /g, '');
-        console.log(messageText.match(/search:/));
+        console.log('search test', /^search:/.test(messageText));
 
-        // If we receive a text message, check to see if it matches a keyword
-        // and send back the example. Otherwise, just echo the text we received.
-        switch (messageText) {
-            case 'feed':
-                sendFeedMessage(senderID);
-                break;
-            case 'generic':
-                sendGenericMessage(senderID);
-                break;
-            case /search:/.test(messageText):
-                let searchString = /search:([a-zA-Z0-9]*)/.exec(messageText)?/search:([a-zA-Z0-9]*)/.exec(messageText)[1]:"";
-                console.log("match search", searchString);
-                sendSearchMessage(searchString || '', senderID);
-                break;
-            default:
-                sendTextMessage(senderID, messageText);
+        //依照不同的訊息做不同回應
+        if(messageText === 'feed'){
+            sendFeedMessage(senderID);
+        }else if(messageText === 'generic'){
+            sendGenericMessage(senderID);
+        }else if(/^search:/.test(messageText)){
+            let searchString = /search:([a-zA-Z0-9]*)/.exec(messageText)?/search:([a-zA-Z0-9]*)/.exec(messageText)[1]:"";
+            console.log("match search", searchString);
+            sendSearchMessage(searchString || '', senderID);
+        }else{
+            sendTextMessage(senderID, messageText);
         }
+
     } else if (messageAttachments) {
         sendTextMessage(senderID, "Message with attachment received");
     }
 }
 
 function sendGenericMessage(recipientId) {
-    var messageData = {
+    let messageData = {
         recipient: {
             id: recipientId
         },
@@ -141,7 +135,7 @@ function sendGenericMessage(recipientId) {
     callSendAPI(messageData);
 }
 
-function sendTextMessage(recipientId, messageText) {
+function sendTextMessage(recipientId) {
     let messageData = {
         recipient: {
             id: recipientId
@@ -163,7 +157,6 @@ function sendFeedMessage(recipientId) {
             },
             message: articleListToMessage(articleList)
         };
-        console.log('sendFeedMessage',articleListToMessage(articleList));
         callSendAPI(messageData);
     }).catch(err => {
         "use strict";
@@ -221,7 +214,7 @@ function callSendAPI(messageData) {
                 messageId, recipientId);
         } else {
             console.error("Unable to send message.");
-            console.error(error);
+            console.error("callSendAPI",error);
         }
     });
 }
@@ -230,24 +223,37 @@ function callSendAPI(messageData) {
 function articleListToMessage(articleList) {
     "use strict";
     let articleMsgList = articleList.map(article => {
-        console.log(article);
+        // return {
+        //     title: article.title,
+        //     subtitle: article.author,
+        //     item_url: article.link,
+        //     image_url: "http://messengerdemo.parseapp.com/img/rift.png",
+        //     buttons: [{
+        //         type: "web_url",
+        //         url: article.link,
+        //         title: "Link to article"
+        //     }, {
+        //         type: "postback",
+        //         payload: 'ISSUE:' + article.issueId,
+        //         title: "Show more article in this Issue"
+        //     }]
+        // }
         return {
-            title: article.title,
-            subtitle: article.author,
-            item_url: article.link,
+            title: "rift",
+            subtitle: "Next-generation virtual reality",
+            item_url: "https://www.oculus.com/en-us/rift/",
             image_url: "http://messengerdemo.parseapp.com/img/rift.png",
             buttons: [{
                 type: "web_url",
-                url: article.link,
-                title: "Link to article"
+                url: "https://www.oculus.com/en-us/rift/",
+                title: "Open Web URL"
             }, {
                 type: "postback",
-                payload: 'ISSUE:' + article.issueId,
-                title: "Show more article in this Issue"
-            }]
+                title: "Call Postback",
+                payload: "Payload for first bubble",
+            }],
         }
     });
-    console.log('articleMsgList', articleMsgList);
     return {
         attachment: {
             type: "template",
