@@ -217,7 +217,7 @@ function handleDateFormat(date) {
 
 const FB_APP_ID = '1821735454746870';
 const FB_APP_SECRET = '2d1dffbe2e884a15d55c5e2ec70503c1';
-let fbShortenToken = 'EAAZA429anqPYBAA7pvb4R5P6LeOv2JuUCh3XlcqrCIcrvEZAZAmjW9z84e46ZCD8ZAltVLZCLbVvmowEgqmZB0JJS9znBXwlLbNASuwZAqVvVZCwFI2LZCNcZAnbwrLzgiCK3mB90MKDmZAvfbjaPkZBXsjrLwuCb7ZCOLZBvQeYS6eZBuBgOQ7h2oZBBH723oxYkdX5eybUZD';
+let fbShortenToken = 'EAAZA429anqPYBAASW50VOwDPxz5qux7sBmis0iBRBzbixmZBTqpvY2s6fdVz3D2WyfB544BEjZAxHWYZB7fhVZC3VWKUaVVTVph20M1nHFYw1nFE9Bfl4mQS4ZA08eFoAzZCl2E0B3cfZBTluv2b4u6ZAYIN14q3vcmXdfvVcjomZACot20zyC4ZBNWeq5EbNZA98LAZD';
 
 function weeklyFacebookPost() {
     "use strict";
