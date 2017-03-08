@@ -158,7 +158,7 @@ function receivedPostback(event) {
         }
         let messageData = {
             recipient: {
-                id: recipientID
+                id: senderID
             },
             message: articleListToMessage(articleList)
         };
