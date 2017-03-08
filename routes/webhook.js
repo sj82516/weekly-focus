@@ -5,14 +5,14 @@ let request = require('request');
 const ArticleModel = require('../model/article.model').ArticleModel;
 const IssueModel = require('../model/issue.model').IssueModel;
 
-const PAGE_ACCESS_TOKEN = "";
+const PAGE_ACCESS_TOKEN = "EAAZA429anqPYBADpbqgqZAKWUZAWzl63gRdJES7h8UktaB0NoW0A54N8Usk6dFOZBeqaOOTRBUZCQx0oWDzZAZCAJlFLUsnybaVX2np3YZBSVpCcI1ArEpfZAnJXXzZAZAYBpgfJTa093aCBBg5z2ZBpBpNHsSzzLPtqSCPBiidhTgZAhZAgZDZD";
 const WEB_URL = "https://yuanchieh.info"
 
 // FB的Webhook GET 驗證
 router.get('/', function (req, res) {
 
     if (req.query['hub.mode'] === 'subscribe' &&
-        req.query['hub.verify_token'] === 'EAAZA429anqPYBAGH9ZBQ1rZCv8lBHVOboRrYm2NInjGV9wznYwix5ZC01Axg3nR536HS3K8KS1UYgrZAvKZA5J0ZCAk6vLy5MANQbb6ZCRrhsjSLI71lIrZBdyipEVzMm0yaQuyBGLFNBZCB2Pa9vZCOL95AdMO5AtOKl7Gm93IIZBxNKgZDZD') {
+        req.query['hub.verify_token'] === PAGE_ACCESS_TOKEN) {
         console.log("Validating webhook");
         res.status(200).send(req.query['hub.challenge']);
     } else {
@@ -61,7 +61,6 @@ function receivedMessage(event) {
     let message = event.message;
 
     console.log("Received message for user %d and page %d at %d with message:", senderID, recipientID, timeOfMessage);
-    console.log(JSON.stringify(message));
 
     let messageId = message.mid;
 
@@ -70,7 +69,8 @@ function receivedMessage(event) {
 
     if (messageText) {
         //去除所有空白
-        let messageText = messageText.replace(/ /g, '');
+        messageText = messageText.replace(/ /g, '');
+	console.log(messageText.match(/search:/));
 
         // If we receive a text message, check to see if it matches a keyword
         // and send back the example. Otherwise, just echo the text we received.
@@ -78,10 +78,12 @@ function receivedMessage(event) {
             case 'feed':
                 sendFeedMessage(senderID);
                 break;
-            case /search:/.match(messageText):
+	    case 'generic':
+		sendGenericMessage(senderID);
+            case messageText.match(/search:/):
                 let searchString = /search:([a-zA-Z0-9]*)/.exec(messageText)[1];
                 console.log("match search", searchString);
-                sendSearchMessage(searchString || '');
+                sendSearchMessage(searchString || '', senderID);
                 break;
             default:
                 sendTextMessage(senderID, messageText);
@@ -91,13 +93,60 @@ function receivedMessage(event) {
     }
 }
 
+function sendGenericMessage(recipientId) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "rift",
+            subtitle: "Next-generation virtual reality",
+            item_url: "https://www.oculus.com/en-us/rift/",               
+            image_url: "http://messengerdemo.parseapp.com/img/rift.png",
+            buttons: [{
+              type: "web_url",
+              url: "https://www.oculus.com/en-us/rift/",
+              title: "Open Web URL"
+            }, {
+              type: "postback",
+              title: "Call Postback",
+              payload: "Payload for first bubble",
+            }],
+          }, {
+            title: "touch",
+            subtitle: "Your Hands, Now in VR",
+            item_url: "https://www.oculus.com/en-us/touch/",               
+            image_url: "http://messengerdemo.parseapp.com/img/touch.png",
+            buttons: [{
+              type: "web_url",
+              url: "https://www.oculus.com/en-us/touch/",
+              title: "Open Web URL"
+            }, {
+              type: "postback",
+              title: "Call Postback",
+              payload: "Payload for second bubble",
+            }]
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
+
 function sendTextMessage(recipientId, messageText) {
     let messageData = {
         recipient: {
             id: recipientId
         },
         message: {
-            text: messageText
+            text: "Work not supported. Please type in 'feed' for random articles or 'search:${text}' to search topic"
         }
     };
 
@@ -107,9 +156,13 @@ function sendTextMessage(recipientId, messageText) {
 function sendFeedMessage(recipientId) {
     ArticleModel.aggregate([{$sample: {size: 5}}]).exec().then(articleList => {
         "use strict";
-        console.log("sendFeedMessage:"+articleList);
-
-        callSendAPI(articleListToMessage(articleList));
+        let messageData = {
+		recipient: {
+      			id: recipientId
+    		},
+    		message: articleListToMessage(articleList)
+	}
+        callSendAPI(messageData);
     }).catch(err => {
         "use strict";
         console.error("sendFeedMessage", err);
@@ -119,7 +172,8 @@ function sendFeedMessage(recipientId) {
 function sendSearchMessage(searchString) {
     "use strict";
     ArticleModel.find({$text: {$search: searchString}}).limit(5).exec().then(articleList=>{
-        callSendAPI(articleListToMessage(articleList));
+        let messageData = articleListToMessage(articleList);
+	callSendAPI(messageData);
     }).catch(err => {
         "use strict";
         console.error("sendSearchMessage", err);
@@ -144,6 +198,7 @@ function receivedPostback(event) {
 }
 
 function callSendAPI(messageData) {
+    console.log('callsendapi',messageData);
     request({
         uri: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token: PAGE_ACCESS_TOKEN},
@@ -168,22 +223,24 @@ function callSendAPI(messageData) {
 function articleListToMessage(articleList){
     "use strict";
     let articleMsgList = articleList.map(article => {
+	console.log(article);
         return {
             title: article.title,
             subtitle: article.author,
             item_url: article.link,
-            image_url: "",
+            image_url: "http://messengerdemo.parseapp.com/img/rift.png",
             buttons: [{
                 type: "web_url",
                 url: article.link,
                 title: "Link to article"
             }, {
                 type: "postback",
-                payload: 'ISSUE:' + issueId,
+                payload: 'ISSUE:' + article.issueId,
                 title: "Show more article in this Issue"
             }]
         }
     });
+    console.log('articleMsgList',articleMsgList);
     return {
         attachment: {
             type: "template",
