@@ -70,7 +70,7 @@ function receivedMessage(event) {
     if (messageText) {
         //去除所有空白
         messageText = messageText.replace(/ /g, '');
-	console.log(messageText.match(/search:/));
+        console.log(messageText.match(/search:/));
 
         // If we receive a text message, check to see if it matches a keyword
         // and send back the example. Otherwise, just echo the text we received.
@@ -78,10 +78,11 @@ function receivedMessage(event) {
             case 'feed':
                 sendFeedMessage(senderID);
                 break;
-	    case 'generic':
-		sendGenericMessage(senderID);
-            case messageText.match(/search:/):
-                let searchString = /search:([a-zA-Z0-9]*)/.exec(messageText)[1];
+            case 'generic':
+                sendGenericMessage(senderID);
+                break;
+            case /search:/.test(messageText):
+                let searchString = /search:([a-zA-Z0-9]*)/.exec(messageText)?/search:([a-zA-Z0-9]*)/.exec(messageText)[1]:"";
                 console.log("match search", searchString);
                 sendSearchMessage(searchString || '', senderID);
                 break;
@@ -94,50 +95,50 @@ function receivedMessage(event) {
 }
 
 function sendGenericMessage(recipientId) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements: [{
-            title: "rift",
-            subtitle: "Next-generation virtual reality",
-            item_url: "https://www.oculus.com/en-us/rift/",               
-            image_url: "http://messengerdemo.parseapp.com/img/rift.png",
-            buttons: [{
-              type: "web_url",
-              url: "https://www.oculus.com/en-us/rift/",
-              title: "Open Web URL"
-            }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for first bubble",
-            }],
-          }, {
-            title: "touch",
-            subtitle: "Your Hands, Now in VR",
-            item_url: "https://www.oculus.com/en-us/touch/",               
-            image_url: "http://messengerdemo.parseapp.com/img/touch.png",
-            buttons: [{
-              type: "web_url",
-              url: "https://www.oculus.com/en-us/touch/",
-              title: "Open Web URL"
-            }, {
-              type: "postback",
-              title: "Call Postback",
-              payload: "Payload for second bubble",
-            }]
-          }]
+    var messageData = {
+        recipient: {
+            id: recipientId
+        },
+        message: {
+            attachment: {
+                type: "template",
+                payload: {
+                    template_type: "generic",
+                    elements: [{
+                        title: "rift",
+                        subtitle: "Next-generation virtual reality",
+                        item_url: "https://www.oculus.com/en-us/rift/",
+                        image_url: "http://messengerdemo.parseapp.com/img/rift.png",
+                        buttons: [{
+                            type: "web_url",
+                            url: "https://www.oculus.com/en-us/rift/",
+                            title: "Open Web URL"
+                        }, {
+                            type: "postback",
+                            title: "Call Postback",
+                            payload: "Payload for first bubble",
+                        }],
+                    }, {
+                        title: "touch",
+                        subtitle: "Your Hands, Now in VR",
+                        item_url: "https://www.oculus.com/en-us/touch/",
+                        image_url: "http://messengerdemo.parseapp.com/img/touch.png",
+                        buttons: [{
+                            type: "web_url",
+                            url: "https://www.oculus.com/en-us/touch/",
+                            title: "Open Web URL"
+                        }, {
+                            type: "postback",
+                            title: "Call Postback",
+                            payload: "Payload for second bubble",
+                        }]
+                    }]
+                }
+            }
         }
-      }
-    }
-  };  
+    };
 
-  callSendAPI(messageData);
+    callSendAPI(messageData);
 }
 
 function sendTextMessage(recipientId, messageText) {
@@ -157,11 +158,12 @@ function sendFeedMessage(recipientId) {
     ArticleModel.aggregate([{$sample: {size: 5}}]).exec().then(articleList => {
         "use strict";
         let messageData = {
-		recipient: {
-      			id: recipientId
-    		},
-    		message: articleListToMessage(articleList)
-	}
+            recipient: {
+                id: recipientId
+            },
+            message: articleListToMessage(articleList)
+        };
+        console.log('sendFeedMessage',articleListToMessage(articleList));
         callSendAPI(messageData);
     }).catch(err => {
         "use strict";
@@ -171,9 +173,14 @@ function sendFeedMessage(recipientId) {
 
 function sendSearchMessage(searchString) {
     "use strict";
-    ArticleModel.find({$text: {$search: searchString}}).limit(5).exec().then(articleList=>{
-        let messageData = articleListToMessage(articleList);
-	callSendAPI(messageData);
+    ArticleModel.find({$text: {$search: searchString}}).limit(5).exec().then(articleList=> {
+        let messageData = {
+            recipient: {
+                id: recipientId
+            },
+            message: articleListToMessage(articleList)
+        };
+        callSendAPI(messageData);
     }).catch(err => {
         "use strict";
         console.error("sendSearchMessage", err);
@@ -198,7 +205,7 @@ function receivedPostback(event) {
 }
 
 function callSendAPI(messageData) {
-    console.log('callsendapi',messageData);
+    console.log('callsendapi', messageData);
     request({
         uri: 'https://graph.facebook.com/v2.6/me/messages',
         qs: {access_token: PAGE_ACCESS_TOKEN},
@@ -220,10 +227,10 @@ function callSendAPI(messageData) {
 }
 
 // 將文章轉為訊息
-function articleListToMessage(articleList){
+function articleListToMessage(articleList) {
     "use strict";
     let articleMsgList = articleList.map(article => {
-	console.log(article);
+        console.log(article);
         return {
             title: article.title,
             subtitle: article.author,
@@ -240,7 +247,7 @@ function articleListToMessage(articleList){
             }]
         }
     });
-    console.log('articleMsgList',articleMsgList);
+    console.log('articleMsgList', articleMsgList);
     return {
         attachment: {
             type: "template",
