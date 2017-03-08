@@ -1,6 +1,9 @@
 const express = require('express');
 let router = express.Router();
 const request = require('request');
+const spawn = require('child_process').spawn;
+
+
 const ArticleModel = require('../model/article.model').ArticleModel;
 const IssueModel = require('../model/issue.model').IssueModel;
 
@@ -208,5 +211,16 @@ function handleDateFormat(date){
     ];
     return monthNames[new Date(date).getMonth()] + ' ' +  new Date(date).getDate() + ', ' + new Date(date).getFullYear();
 }
+
+//加入github的webhook，自動pull
+const child = spawn('git pull origin master', [], {
+    detached: true,
+    stdio: [ 'ignore']
+});
+
+router.post('/github/webhook', function(req, res){
+    "use strict";
+    child.unref();
+});
 
 module.exports = router;
