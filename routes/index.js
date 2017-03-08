@@ -69,11 +69,11 @@ router.get('/issues', function (req, res, next) {
 
 router.get('/issues/:id', csrfProtection, function (req, res, next) {
     // 如果超過範圍
-    if (req.params.id > process.env.LatestIssue) {
+    if (req.params.id > process.env.LatestIssue || req.params.id == 0) {
         return res.render('issue', {
             cronDay: process.env.Cronday,
             latestIssue: process.env.LatestIssue,
-            issueId: req.params.id,
+            issueId: 0,
             csrfToken: req.csrfToken(),
             articleList: []
         });

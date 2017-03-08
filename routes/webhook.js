@@ -73,8 +73,6 @@ function receivedMessage(event) {
         //依照不同的訊息做不同回應
         if(messageText === 'feed'){
             sendFeedMessage(senderID);
-        }else if(messageText === 'generic'){
-            sendGenericMessage(senderID);
         }else if(/^search:/.test(messageText)){
             let searchString = /search:([a-zA-Z0-9]*)/.exec(messageText)?/search:([a-zA-Z0-9]*)/.exec(messageText)[1]:"";
             console.log("match search", searchString);
@@ -88,58 +86,13 @@ function receivedMessage(event) {
     }
 }
 
-function sendGenericMessage(recipientId) {
+function sendTextMessage(recipientId, text) {
     let messageData = {
         recipient: {
             id: recipientId
         },
         message: {
-            attachment: {
-                type: "template",
-                payload: {
-                    template_type: "generic",
-                    elements: [{
-                        title: "rift",
-                        subtitle: "Next-generation virtual reality",
-                        item_url: "https://www.oculus.com/en-us/rift/",
-                        buttons: [{
-                            type: "web_url",
-                            url: "https://www.oculus.com/en-us/rift/",
-                            title: "Open Web URL"
-                        }, {
-                            type: "postback",
-                            title: "Call Postback",
-                            payload: "Payload for first bubble",
-                        }],
-                    }, {
-                        title: "touch",
-                        subtitle: "Your Hands, Now in VR",
-                        item_url: "https://www.oculus.com/en-us/touch/",
-                        buttons: [{
-                            type: "web_url",
-                            url: "https://www.oculus.com/en-us/touch/",
-                            title: "Open Web URL"
-                        }, {
-                            type: "postback",
-                            title: "Call Postback",
-                            payload: "Payload for second bubble",
-                        }]
-                    }]
-                }
-            }
-        }
-    };
-
-    callSendAPI(messageData);
-}
-
-function sendTextMessage(recipientId) {
-    let messageData = {
-        recipient: {
-            id: recipientId
-        },
-        message: {
-            text: "Work not supported. Please type in 'feed' for random articles or 'search:${text}' to search topic"
+            text: text || "Message not supported. Please type in 'feed' for random articles or 'search:${text}' to search topic"
         }
     };
 
@@ -196,8 +149,8 @@ function receivedPostback(event) {
     console.log("Received postback for user %d and page %d with payload '%s' " +
         "at %d", senderID, recipientID, payload, timeOfPostback);
 
-    // When a postback is called, we'll send a message back to the sender to
-    // let them know it was successful
+
+
     sendTextMessage(senderID, "Postback called");
 }
 

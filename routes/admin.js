@@ -41,7 +41,7 @@ let cronWeekday = week.indexOf(process.env.Cronday) || 3;
 // 秒 分 時 日 月 星期X
 // 預設星期X的23:59:59開始發送Issue
 // let job = new CronJob('59 59 23 * * ' + cronWeekday, weeklyTask, null, true, 'America/Los_Angeles');
-let job = new CronJob('0 */20 * * * *', weeklyTask, null, true, 'Asia/Taipei');
+let job = new CronJob('0 59 23 * * ' + cronWeekday, weeklyTask, null, true, 'Asia/Taipei');
 job.start();
 
 // 固定事件，更新最新一期的Issue
