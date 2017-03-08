@@ -5,7 +5,6 @@ let router = express.Router();
 const request = require('request');
 
 const ArticleModel = require('../model/article.model').ArticleModel;
-const AuthorModel = require('../model/author.model').AuthorModel;
 const IssueModel = require('../model/issue.model').IssueModel;
 const SubscriberModel = require('../model/subscriber.model').SubscriberModel;
 const jwt = require('jsonwebtoken');

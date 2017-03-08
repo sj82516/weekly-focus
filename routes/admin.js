@@ -2,6 +2,7 @@ let router = require('express').Router();
 let CronJob = require('cron').CronJob;
 const path = require('path');
 const jade = require('jade');
+const request = require('request');
 const nodemailer = require('nodemailer');
 
 const csurf = require('csurf');
@@ -53,10 +54,12 @@ function weeklyTask() {
 
     createIssue();
     renderIssueEmail();
+
+    weeklyFacebookPost();
 }
 
 //找出目前最新一期的Issue，並新增一期
-function createIssue(){
+function createIssue() {
     "use strict";
     IssueModel.find({}).sort({id: -1}).exec().then(docs => {
         "use strict";
@@ -74,16 +77,16 @@ function createIssue(){
 }
 
 // 喧染IssueEmail並發送郵件
-function renderIssueEmail(){
+function renderIssueEmail() {
     "use strict";
     let issueEmailHTML = '';
     ArticleModel.find({issueId: process.env.LatestIssue}).exec().then(articleList => {
         issueEmailHTML = jade.renderFile(path.join(__dirname, '../views/issueEmail.jade'), {
             issueId: process.env.LatestIssue,
-            date: monthNames[new Date().getMonth()] + ' ' +  new Date().getDate() + ', ' + new Date().getFullYear(),
+            date: monthNames[new Date().getMonth()] + ' ' + new Date().getDate() + ', ' + new Date().getFullYear(),
             articleList
         });
-        return SubscriberModel.find({status:'confirmed'}).exec();
+        return SubscriberModel.find({status: 'confirmed'}).exec();
     }).then(subscriberList => {
         console.log('list to send email:', subscriberList.map(subscriber => subscriber.email));
         deliverIssueEmail(subscriberList.map(subscriber => subscriber.email), issueEmailHTML);
@@ -112,18 +115,18 @@ class issueMailOptions {
 
 //發送郵件，為了避免當作垃圾郵件，每次取80封寄送
 //間隔100ms發送直到全部發完
-function deliverIssueEmail(emailList, issueEmailHTML){
+function deliverIssueEmail(emailList, issueEmailHTML) {
     "use strict";
-    if(emailList.length == 0){
+    if (emailList.length == 0) {
         return;
     }
-    let emailTo = emailList.length < 80? emailList.splice(0, 80).join(','):emailList.splice(0, emailList.length).join(',');
+    let emailTo = emailList.length < 80 ? emailList.splice(0, 80).join(',') : emailList.splice(0, emailList.length).join(',');
     console.log(emailTo);
     transporter.sendMail(new issueMailOptions(emailTo, issueEmailHTML), (err, info) => {
         if (err) {
             console.error('deliverIssueEmail sendmail error', err);
         }
-        if(emailList.length > 0) {
+        if (emailList.length > 0) {
             return setTimeout(deliverIssueEmail(emailList, issueEmailHTML), 100);
         }
     });
@@ -142,7 +145,7 @@ router.get('/', csrfProtection, function (req, res, next) {
     })
 });
 
-router.get('/preview', function(req, res){
+router.get('/preview', function (req, res) {
     "use strict";
     ArticleModel.find({issueId: parseInt(process.env.LatestIssue) + 1}).exec().then(articleList => {
         let date = new Date();
@@ -157,7 +160,7 @@ router.get('/preview', function(req, res){
 
 // 文章
 router.route('/article', csrfProtection)
-    .post(function(req, res){
+    .post(function (req, res) {
         "use strict";
         ArticleModel.create({
             title: req.body.title,
@@ -173,26 +176,26 @@ router.route('/article', csrfProtection)
             res.json({err});
         })
     })
-    .put(function(req, res){
+    .put(function (req, res) {
         ArticleModel.findOneAndUpdate({_id: req.body.articleId}, {
             title: req.body.title,
             intro: req.body.intro,
             author: req.body.author,
             link: req.body.link,
-        },{new: true},function(err,article){
-            if(err) return res.json({err});
+        }, {new: true}, function (err, article) {
+            if (err) return res.json({err});
             console.log(article);
             res.json({article});
         })
-    }).delete(function(req, res) {
-    console.log('remove',req.body);
-    ArticleModel.findOneAndRemove({_id: req.body.articleId},function(err){
-        if(err) return res.json({err});
+    }).delete(function (req, res) {
+    console.log('remove', req.body);
+    ArticleModel.findOneAndRemove({_id: req.body.articleId}, function (err) {
+        if (err) return res.json({err});
         res.json({success: true});
     })
 });
 
-router.post('/cronday', csrfProtection, function(req, res){
+router.post('/cronday', csrfProtection, function (req, res) {
     "use strict";
     process.env.Cronday = req.body.cronday || 'Thursday';
     // cronday修正後應該要重新啟動，但是demo需求就先固定每10分鐘一封
@@ -203,12 +206,47 @@ router.post('/cronday', csrfProtection, function(req, res){
 });
 
 // 處理日期格式，回傳字串
-function handleDateFormat(date){
+function handleDateFormat(date) {
     "use strict";
     const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ];
-    return monthNames[new Date(date).getMonth()] + ' ' +  new Date(date).getDate() + ', ' + new Date(date).getFullYear();
+    return monthNames[new Date(date).getMonth()] + ' ' + new Date(date).getDate() + ', ' + new Date(date).getFullYear();
 }
+
+
+const FB_APP_ID = '1821735454746870';
+const FB_APP_SECRET = '2d1dffbe2e884a15d55c5e2ec70503c1';
+let fbShortenToken = 'EAAZA429anqPYBACZCe5o8RfU7lxu8AEZCRlALUZA1IQZAZCQ3Omt4KnLk2wZALWHKtl7hPiO6JPwBQ4M3iokJbD2xsvPgZC1jOyCW3FC2GhSgKCVbG7WCvZBdzNpwqbPWxH4TIpgFTtEPjR8YRcE7KSv8zAVxJ5Efz5v8oeowOJNW0i4g6AvbCBMDQOUZCOuB9qykZD';
+
+function weeklyFacebookPost() {
+    "use strict";
+    let extend_token_url = `https://graph.facebook.com/v2.8/oauth/access_token?grant_type=fb_exchange_token&client_id=${FB_APP_ID}&amp&client_secret=${FB_APP_SECRET}&amp&fb_exchange_token=${fbShortenToken}`
+
+    //定期更新Token
+    request(extend_token_url, function(err, response, body){
+        let access_token = JSON.parse(body).access_token;
+
+        // 因為Token只少每60天都必須延長一次，所以改成每週發文時都將上禮拜的Token換成這裡的新Token
+        fbShortenToken = access_token;
+
+        // 拿 應用程式的粉絲專頁Token 換成 有Po文權限的Token
+        request(`https://graph.facebook.com/722084814632778?fields=access_token&access_token=${access_token}`, function (err, response, body) {
+            let access_token = JSON.parse(body).access_token;
+            let post_link = 'https://yuanchieh.info/issues/' + process.env.LatestIssue;
+            let post_message = 'Newletter for this week!';
+            console.log(access_token);
+
+            let post_page_url = `https://graph.facebook.com/v2.8/722084814632778/feed?message=${post_message}&link=${post_link}&access_token=${access_token}`;
+
+            //操作頁面權限的Token發文
+            request.post(post_page_url, function (err, response, body) {
+                console.log(body);
+            })
+        })
+    });
+}
+
+weeklyFacebookPost();
 
 module.exports = router;

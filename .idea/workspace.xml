@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7d4e76a-8e03-4bdc-9f43-956158f1341f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/weeklyfocus.jpeg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/www" afterPath="$PROJECT_DIR$/bin/www" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/admin.js" afterPath="$PROJECT_DIR$/routes/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.js" afterPath="$PROJECT_DIR$/routes/api.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/webhook.js" afterPath="$PROJECT_DIR$/routes/webhook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout.jade" afterPath="$PROJECT_DIR$/views/layout.jade" />
     </list>
     <ignored path="weekly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,46 +34,82 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
+            <state relative-caret-position="165">
+              <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
               <folding>
                 <element signature="e#403#1224#0" expanded="false" />
                 <element signature="e#1276#2248#0" expanded="false" />
                 <element signature="e#2320#3195#0" expanded="false" />
+                <element signature="e#3247#4060#0" expanded="false" />
                 <element signature="e#4136#4908#0" expanded="false" />
                 <element signature="e#4990#5298#0" expanded="false" />
                 <element signature="n#!!block;n#handleErrorMsg#0" expanded="false" />
+                <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="webhook.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="230" column="21" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
+              <folding>
+                <element signature="n#!!block;n#init#0" expanded="false" />
+                <element signature="n#!!block;n#createIssue#0" expanded="false" />
+                <element signature="n#!!block;n#renderIssueEmail#0" expanded="false" />
+                <element signature="e#3271#3381#0" expanded="false" />
+                <element signature="n#issueMailOptions#0" expanded="false" />
+                <element signature="n#!!block;n#deliverIssueEmail#0" expanded="false" />
+                <element signature="e#4437#4839#0" expanded="false" />
+                <element signature="e#4886#5317#0" expanded="false" />
+                <element signature="e#5398#5847#0" expanded="false" />
+                <element signature="e#5878#6265#0" expanded="false" />
+                <element signature="e#6409#6492#0" expanded="false" />
+                <element signature="e#6559#6833#0" expanded="false" />
+                <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="webhook.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/webhook.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+            <state relative-caret-position="360">
+              <caret line="127" column="15" selection-start-line="127" selection-start-column="15" selection-end-line="127" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/admin.jade">
+      <file leaf-file-name="article.model.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/article.model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+            <state relative-caret-position="360">
+              <caret line="24" column="11" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="www" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bin/www">
+      <file leaf-file-name="api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/api.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="165">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+              <folding>
+                <element signature="e#832#931#0" expanded="false" />
+                <element signature="n#subscribeMailOptions#0" expanded="false" />
+                <element signature="e#1539#1640#0" expanded="false" />
+                <element signature="n#unsubscribeMailOptions#0" expanded="false" />
+                <element signature="e#1725#1758#0" expanded="false" />
+                <element signature="e#2340#3682#0" expanded="false" />
+                <element signature="e#3755#4565#0" expanded="false" />
+                <element signature="e#4641#6388#0" expanded="false" />
+                <element signature="e#6459#7066#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,10 +155,8 @@
         <option value="$PROJECT_DIR$/views/issueEmail.jade" />
         <option value="$PROJECT_DIR$/public/stylesheets/index.sass" />
         <option value="$PROJECT_DIR$/public/stylesheets/admin.sass" />
-        <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/views/preview.jade" />
         <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/routes/api.js" />
         <option value="$PROJECT_DIR$/public/javascripts/admin.js" />
         <option value="$PROJECT_DIR$/views/search.jade" />
         <option value="$PROJECT_DIR$/views/components/issueTable.jade" />
@@ -125,15 +164,17 @@
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/webhook.js" />
         <option value="$PROJECT_DIR$/.dockerignore" />
         <option value="$PROJECT_DIR$/dockercompose.yml" />
         <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/views/admin.jade" />
+        <option value="$PROJECT_DIR$/views/layout.jade" />
         <option value="$PROJECT_DIR$/bin/www" />
+        <option value="$PROJECT_DIR$/routes/admin.js" />
+        <option value="$PROJECT_DIR$/routes/api.js" />
+        <option value="$PROJECT_DIR$/routes/webhook.js" />
       </list>
     </option>
   </component>
@@ -178,8 +219,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -222,12 +261,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="routes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weekly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -244,6 +313,9 @@
     <property name="prop_add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/images" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/views" />
@@ -323,15 +395,16 @@
       <workItem from="1487333557483" duration="934000" />
       <workItem from="1487471168981" duration="30948000" />
       <workItem from="1487687093228" duration="90681000" />
-      <workItem from="1488639918907" duration="10911000" />
+      <workItem from="1488639918907" duration="12975000" />
+      <workItem from="1488876841842" duration="7741000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133474000" />
+    <option name="totallyTimeSpent" value="143279000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="768" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="768" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16431594" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -398,14 +471,18 @@
         <state relative-caret-position="1440">
           <caret line="197" column="44" selection-start-line="197" selection-start-column="44" selection-end-line="197" selection-end-column="44" />
           <folding>
-            <element signature="n#!!block;n#weeklyTask#0" expanded="false" />
+            <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#createIssue#0" expanded="false" />
             <element signature="n#!!block;n#renderIssueEmail#0" expanded="false" />
+            <element signature="e#3271#3381#0" expanded="false" />
+            <element signature="n#issueMailOptions#0" expanded="false" />
             <element signature="n#!!block;n#deliverIssueEmail#0" expanded="false" />
-            <element signature="e#4812#5243#0" expanded="false" />
-            <element signature="e#5322#5771#0" expanded="false" />
-            <element signature="e#5800#6181#0" expanded="false" />
-            <element signature="e#6320#6402#0" expanded="false" />
+            <element signature="e#4437#4839#0" expanded="false" />
+            <element signature="e#4886#5317#0" expanded="false" />
+            <element signature="e#5398#5847#0" expanded="false" />
+            <element signature="e#5878#6265#0" expanded="false" />
+            <element signature="e#6409#6492#0" expanded="false" />
+            <element signature="e#6559#6833#0" expanded="false" />
             <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
           </folding>
         </state>
@@ -415,7 +492,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -424,15 +500,15 @@
         <state relative-caret-position="705">
           <caret line="200" column="3" selection-start-line="200" selection-start-column="3" selection-end-line="200" selection-end-column="3" />
           <folding>
-            <element signature="e#898#997#0" expanded="false" />
+            <element signature="e#832#931#0" expanded="false" />
             <element signature="n#subscribeMailOptions#0" expanded="false" />
-            <element signature="e#1605#1706#0" expanded="false" />
+            <element signature="e#1539#1640#0" expanded="false" />
             <element signature="n#unsubscribeMailOptions#0" expanded="false" />
-            <element signature="e#1791#1824#0" expanded="false" />
-            <element signature="e#2406#3748#0" expanded="false" />
-            <element signature="e#3821#4631#0" expanded="false" />
-            <element signature="e#4707#6454#0" expanded="false" />
-            <element signature="e#6525#7132#0" expanded="false" />
+            <element signature="e#1725#1758#0" expanded="false" />
+            <element signature="e#2340#3682#0" expanded="false" />
+            <element signature="e#3755#4565#0" expanded="false" />
+            <element signature="e#4641#6388#0" expanded="false" />
+            <element signature="e#6459#7066#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -455,7 +531,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -475,9 +550,11 @@
             <element signature="e#403#1224#0" expanded="false" />
             <element signature="e#1276#2248#0" expanded="false" />
             <element signature="e#2320#3195#0" expanded="false" />
+            <element signature="e#3247#4060#0" expanded="false" />
             <element signature="e#4136#4908#0" expanded="false" />
             <element signature="e#4990#5298#0" expanded="false" />
             <element signature="n#!!block;n#handleErrorMsg#0" expanded="false" />
+            <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -554,25 +631,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/issueEmail.html" />
     <entry file="file://$PROJECT_DIR$/model/issue.model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/article.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="23" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -595,14 +658,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-148">
           <caret line="65" column="20" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layout.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -666,7 +721,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -677,56 +731,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding>
-            <element signature="e#898#997#0" expanded="false" />
-            <element signature="n#subscribeMailOptions#0" expanded="false" />
-            <element signature="e#1605#1706#0" expanded="false" />
-            <element signature="n#unsubscribeMailOptions#0" expanded="false" />
-            <element signature="e#1791#1824#0" expanded="false" />
-            <element signature="e#2406#3748#0" expanded="false" />
-            <element signature="e#3821#4631#0" expanded="false" />
-            <element signature="e#4707#6454#0" expanded="false" />
-            <element signature="e#6525#7132#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.dockerignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-645">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/.dockerignore" />
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml" />
+    <entry file="file://$PROJECT_DIR$/Dockerfile" />
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
@@ -741,52 +748,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/webhook.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="107" column="38" selection-start-line="107" selection-start-column="38" selection-end-line="107" selection-end-column="38" />
-          <folding>
-            <element signature="n#!!block;n#weeklyTask#0" expanded="false" />
-            <element signature="n#!!block;n#createIssue#0" expanded="false" />
-            <element signature="n#!!block;n#renderIssueEmail#0" expanded="false" />
-            <element signature="n#!!block;n#deliverIssueEmail#0" expanded="false" />
-            <element signature="e#4812#5243#0" expanded="false" />
-            <element signature="e#5322#5771#0" expanded="false" />
-            <element signature="e#5800#6181#0" expanded="false" />
-            <element signature="e#6320#6402#0" expanded="false" />
-            <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/components/issueTable.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="106" column="26" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="26" />
-          <folding>
-            <element signature="e#403#1224#0" expanded="false" />
-            <element signature="e#1276#2248#0" expanded="false" />
-            <element signature="e#2320#3195#0" expanded="false" />
-            <element signature="e#4136#4908#0" expanded="false" />
-            <element signature="e#4990#5298#0" expanded="false" />
-            <element signature="n#!!block;n#handleErrorMsg#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -814,18 +779,113 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+        <state relative-caret-position="45">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding>
+            <element signature="e#403#1224#0" expanded="false" />
+            <element signature="e#1276#2248#0" expanded="false" />
+            <element signature="e#2320#3195#0" expanded="false" />
+            <element signature="e#3247#4060#0" expanded="false" />
+            <element signature="e#4136#4908#0" expanded="false" />
+            <element signature="e#4990#5298#0" expanded="false" />
+            <element signature="n#!!block;n#handleErrorMsg#0" expanded="false" />
+            <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+        <state relative-caret-position="240">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="230" column="21" selection-start-line="230" selection-start-column="21" selection-end-line="230" selection-end-column="21" />
+          <folding>
+            <element signature="n#!!block;n#init#0" expanded="false" />
+            <element signature="n#!!block;n#createIssue#0" expanded="false" />
+            <element signature="n#!!block;n#renderIssueEmail#0" expanded="false" />
+            <element signature="e#3271#3381#0" expanded="false" />
+            <element signature="n#issueMailOptions#0" expanded="false" />
+            <element signature="n#!!block;n#deliverIssueEmail#0" expanded="false" />
+            <element signature="e#4437#4839#0" expanded="false" />
+            <element signature="e#4886#5317#0" expanded="false" />
+            <element signature="e#5398#5847#0" expanded="false" />
+            <element signature="e#5878#6265#0" expanded="false" />
+            <element signature="e#6409#6492#0" expanded="false" />
+            <element signature="e#6559#6833#0" expanded="false" />
+            <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/article.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding>
+            <element signature="e#832#931#0" expanded="false" />
+            <element signature="n#subscribeMailOptions#0" expanded="false" />
+            <element signature="e#1539#1640#0" expanded="false" />
+            <element signature="n#unsubscribeMailOptions#0" expanded="false" />
+            <element signature="e#1725#1758#0" expanded="false" />
+            <element signature="e#2340#3682#0" expanded="false" />
+            <element signature="e#3755#4565#0" expanded="false" />
+            <element signature="e#4641#6388#0" expanded="false" />
+            <element signature="e#6459#7066#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/webhook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="127" column="15" selection-start-line="127" selection-start-column="15" selection-end-line="127" selection-end-column="15" />
           <folding />
         </state>
       </provider>
