@@ -164,7 +164,7 @@ function sendFeedMessage(recipientId) {
     });
 }
 
-function sendSearchMessage(searchString) {
+function sendSearchMessage(searchString, recipientId) {
     "use strict";
     ArticleModel.find({$text: {$search: searchString}}).limit(5).exec().then(articleList=> {
         let messageData = {
@@ -223,35 +223,20 @@ function callSendAPI(messageData) {
 function articleListToMessage(articleList) {
     "use strict";
     let articleMsgList = articleList.map(article => {
-        // return {
-        //     title: article.title,
-        //     subtitle: article.author,
-        //     item_url: article.link,
-        //     image_url: "http://messengerdemo.parseapp.com/img/rift.png",
-        //     buttons: [{
-        //         type: "web_url",
-        //         url: article.link,
-        //         title: "Link to article"
-        //     }, {
-        //         type: "postback",
-        //         payload: 'ISSUE:' + article.issueId,
-        //         title: "Show more article in this Issue"
-        //     }]
-        // }
         return {
-            title: "rift",
-            subtitle: "Next-generation virtual reality",
-            item_url: "https://www.oculus.com/en-us/rift/",
+            title: article.title,
+            subtitle: article.author,
+            item_url: article.link,
             image_url: "http://messengerdemo.parseapp.com/img/rift.png",
             buttons: [{
                 type: "web_url",
-                url: "https://www.oculus.com/en-us/rift/",
-                title: "Open Web URL"
+                url: article.link,
+                title: "Link to article"
             }, {
                 type: "postback",
-                title: "Call Postback",
-                payload: "Payload for first bubble",
-            }],
+                payload: 'ISSUE:' + article.issueId,
+                title: "Show more article in this Issue"
+            }]
         }
     });
     return {
