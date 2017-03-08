@@ -210,10 +210,4 @@ function handleDateFormat(date){
     return monthNames[new Date(date).getMonth()] + ' ' +  new Date(date).getDate() + ', ' + new Date(date).getFullYear();
 }
 
-//加入github的webhook，自動pull
-const child = spawn('git pull origin master', [], {
-    detached: true,
-    stdio: ['ignore']
-});
-
 module.exports = router;
