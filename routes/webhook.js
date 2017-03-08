@@ -5,7 +5,7 @@ let request = require('request');
 const ArticleModel = require('../model/article.model').ArticleModel;
 const IssueModel = require('../model/issue.model').IssueModel;
 
-const PAGE_ACCESS_TOKEN = "EAAZA429anqPYBACzIZAbl7kJszLDb6R5EV2dfEgkHvl6fTg1MHY6SBjxn2QTfFwyuviZCN8ZCg37bnykf60Y4o7M64U8kNTRkHfcGsEN3TZAYR5ZCSwgMJS2NQwq5lZAYswcHPawADhORn87PcVNOrBuZAZCb9HwUOlFZCnckoTyKgGTAAvdbjCyqOmG90TctqekUZD";
+const PAGE_ACCESS_TOKEN = "EAAZA429anqPYBAAbT2B0EkZCCXMHoVUoUcBqDiZC5gFjU4bCCg21pcT5YjzQyV7dNM3lSzl5yDFaXQBQ0D2sM0AfC1x2OZCACLnFS0jnwhGpM2LOQ7CUgNDcwCWZADGQNpAWagRI1ee4ZAa2UFzm2PHUG1dIZCcSg9WFLOD3PZCLRAZDZD";
 const WEB_URL = "https://yuanchieh.info";
 
 // FB的Webhook GET 驗證
