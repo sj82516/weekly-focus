@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a7d4e76a-8e03-4bdc-9f43-956158f1341f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/subscribeEmail.html" afterPath="$PROJECT_DIR$/views/subscribeEmail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/unsubscribeEmail.html" afterPath="$PROJECT_DIR$/views/unsubscribeEmail.html" />
     </list>
     <ignored path="weekly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,27 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/readme.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="240">
-                <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-          <provider editor-type-id="MarkdownFxPreviewEditor">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="admin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="219" column="220" selection-start-line="219" selection-start-column="220" selection-end-line="219" selection-end-column="220" />
+            <state relative-caret-position="103">
+              <caret line="177" column="6" selection-start-line="177" selection-start-column="6" selection-end-line="177" selection-end-column="6" />
               <folding>
                 <element signature="n#!!block;n#init#0" expanded="false" />
                 <element signature="n#!!block;n#createIssue#0" expanded="false" />
@@ -71,6 +56,32 @@
                 <element signature="e#6571#6845#0" expanded="false" />
                 <element signature="n#!!block;n#handleDateFormat#0" expanded="false" />
                 <element signature="n#!!block;n#weeklyFacebookPost#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="subscribeEmail.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/subscribeEmail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="94">
+              <caret line="169" column="61" selection-start-line="169" selection-start-column="61" selection-end-line="169" selection-end-column="61" />
+              <folding>
+                <marker date="1488978396000" expanded="true" signature="3780:3832" ph="..." />
+                <marker date="1488978396000" expanded="true" signature="3885:3941" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unsubscribeEmail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/unsubscribeEmail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="169" column="61" selection-start-line="169" selection-start-column="52" selection-end-line="169" selection-end-column="61" />
+              <folding>
+                <marker date="1488978396000" expanded="true" signature="3780:3832" ph="..." />
+                <marker date="1488978396000" expanded="true" signature="3885:3941" ph="..." />
               </folding>
             </state>
           </provider>
@@ -103,10 +114,8 @@
         <option value="$PROJECT_DIR$/views/email.html" />
         <option value="$PROJECT_DIR$/views/test.html" />
         <option value="$PROJECT_DIR$/views/components/page-nav.jade" />
-        <option value="$PROJECT_DIR$/views/subscribeEmail.html" />
         <option value="$PROJECT_DIR$/views/thankyou.jade" />
         <option value="$PROJECT_DIR$/views/unsubscribe.jade" />
-        <option value="$PROJECT_DIR$/views/unsubscribeEmail.html" />
         <option value="$PROJECT_DIR$/views/index.jade" />
         <option value="$PROJECT_DIR$/public/stylesheets/bundle.sass" />
         <option value="$PROJECT_DIR$/views/issueEmail.html" />
@@ -137,6 +146,8 @@
         <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/routes/webhook.js" />
         <option value="$PROJECT_DIR$/readme.md" />
+        <option value="$PROJECT_DIR$/views/unsubscribeEmail.html" />
+        <option value="$PROJECT_DIR$/views/subscribeEmail.html" />
       </list>
     </option>
   </component>
@@ -392,12 +403,12 @@
       <workItem from="1488639918907" duration="12975000" />
       <workItem from="1488876841842" duration="7741000" />
       <workItem from="1488943574062" duration="4960000" />
-      <workItem from="1488974278943" duration="3224000" />
+      <workItem from="1488974278943" duration="3455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="151463000" />
+    <option name="totallyTimeSpent" value="151694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="768" extended-state="0" />
@@ -579,17 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/unsubscribeEmail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="172" column="291" selection-start-line="172" selection-start-column="291" selection-end-line="172" selection-end-column="291" />
-          <folding>
-            <marker date="1487898385000" expanded="true" signature="3780:3832" ph="..." />
-            <marker date="1487898385000" expanded="true" signature="3885:3941" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/unsubscribe.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -667,27 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/subscribeEmail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="146" column="67" selection-start-line="146" selection-start-column="62" selection-end-line="146" selection-end-column="67" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#1;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#p#1;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#td#0;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1487840409000" expanded="true" signature="3780:3832" ph="..." />
-            <marker date="1487840409000" expanded="true" signature="3885:3941" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -839,10 +818,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="240">
+            <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/webhook.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="206" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="206" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="219" column="220" selection-start-line="219" selection-start-column="220" selection-end-line="219" selection-end-column="220" />
+        <state relative-caret-position="103">
+          <caret line="177" column="6" selection-start-line="177" selection-start-column="6" selection-end-line="177" selection-end-column="6" />
           <folding>
             <element signature="n#!!block;n#init#0" expanded="false" />
             <element signature="n#!!block;n#createIssue#0" expanded="false" />
@@ -861,26 +862,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/webhook.js">
+    <entry file="file://$PROJECT_DIR$/views/unsubscribeEmail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="206" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="206" />
-          <folding />
+        <state relative-caret-position="150">
+          <caret line="169" column="61" selection-start-line="169" selection-start-column="52" selection-end-line="169" selection-end-column="61" />
+          <folding>
+            <marker date="1488978396000" expanded="true" signature="3780:3832" ph="..." />
+            <marker date="1488978396000" expanded="true" signature="3885:3941" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="240">
-            <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-            <folding />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/views/subscribeEmail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="169" column="61" selection-start-line="169" selection-start-column="61" selection-end-line="169" selection-end-column="61" />
+          <folding>
+            <marker date="1488978396000" expanded="true" signature="3780:3832" ph="..." />
+            <marker date="1488978396000" expanded="true" signature="3885:3941" ph="..." />
+          </folding>
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownFxPreviewEditor">
-        <state />
       </provider>
     </entry>
   </component>
